@@ -7,11 +7,30 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>Salute</h2>
     <div id="message"></div>
+
+    <h2>Add</h2>
+    <input id="num1">
+    <input id="num2">
+    <button type="button" onclick="calculate()">Add</button> 
+    <p id="result"></p>
 
     <script>
         const msg = "Hello World"
         document.querySelector('#message').innerHTML=msg
+
+        function calculate(){
+        var n1, n2, amount
+
+        n1 = document.querySelector('#num1').value
+        n2 = document.querySelector('#num2').value
+
+        amount = parseFloat(n1) + parseFloat(n2)
+
+        document.querySelector('#result').innerHTML = amount
+    
+    }
     </script>
 </body>
 </html>
