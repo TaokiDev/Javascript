@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Checking the array</h1>
+    <p>If the array contains number 5, it pops up a message that indicates he found it</p>
+    <br>
+    <p>If the length of the array is odd, shows the number in the middle</p>
+    <br>
+    <p>Otherwise, it shows the 2 numbers in the middle</p>
+    <button type="button" onclick="findNumberFive()">Find</button> 
+    <p id="result1"></p>
+    <p id="result2"></p>
+</body>
+    <script>
+        function findNumberFive(){
+            var arr1 = [5,4,3,2,8,4], answer1, answer2
+            
+           for(var i=0; i<arr1.length; i++){
+                if( arr1.includes(5) == true ){
+                    answer1 = 'Five found!'
+                }else{
+                    answer1 = 'Five not found'
+                }
+           }
+
+           if( arr1.length % 2 == 0){
+                answer2 = arr1.slice(2,4)
+           }else{
+               answer2 = arr1[2]
+           }
+            
+            document.querySelector('#result1').innerHTML = answer1
+            document.querySelector('#result2').innerHTML = answer2
+        }
+    </script>
+</html>

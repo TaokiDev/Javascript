@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>random info from a person</h1>
+    <div>Name: <span id="name"></span></div>
+    <div>Surname: <span id="surname"></span></div>
+    <div>Email: <span id="email"></span></div>
+    <div>Address: <span id="address"></span></div>
+    <script>
+        fetch('https://randomuser.me/api')
+  .then(response => response.json() )
+  .then(json => {
+        document.querySelector('#name').innerHTML=json.results[0].name.first
+        document.querySelector('#surname').innerHTML=json.results[0].name.last
+        document.querySelector('#email').innerHTML=json.results[0].email
+        document.querySelector('#address').innerHTML=json.results[0].location.street.name
+   })
+
+    </script>
+</body>
+</html>
