@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="text-align: center; font-size: 3em;">Today Is</h2>
+    <p style="text-align: center; font-size: 3em;"> <span id="day"></span> <span id="month"></span><span id="year"></span> </p>
+    <img id="tree" style="margin-left:130px;">
+</body>
+    <script>
+        function getDate(){
+
+            const now = new Date()
+            const day = now.getDate()
+            const month = now.getMonth()
+            const year = now.getFullYear()
+            
+            if( day == 25 && month == 11 ){
+                document.getElementById("day").style.color = "red"
+                document.getElementById("month").style.color = "green"
+                document.getElementById("year").style.color = "red"
+                document.getElementById("tree").src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Xmas_tree.svg/1024px-Xmas_tree.svg.png"
+            }
+            
+            var ansDay = day+'/'
+            var ansMonth = month+'/'
+            var ansYear = year
+
+            document.querySelector('#day').innerHTML = ansDay
+            document.querySelector('#month').innerHTML = ansMonth
+            document.querySelector('#year').innerHTML = ansYear
+        }
+
+        getDate()
+    </script>
+</html>

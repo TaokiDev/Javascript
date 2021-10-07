@@ -99,10 +99,6 @@ var arr = [
     },
     [4,5,6]
 ]
-/*console.log( arr[4]('Pepe') )
-console.log( arr[0] )
-console.log( arr[1].precio.iva )
-*/
 
 /*Ejercicio 10*/
 
