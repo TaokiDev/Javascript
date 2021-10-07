@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2>Javascript Object(formatted)</h2>
+<p>Name: <span id="name"></span> <span id="surname"></span></p>
+<p>Age: <span id="age"></span></p>
+<p>Habilities: <span id="skills"></span> <span id="skills2"></span> <span id="skills3"></span></p>
+<p>Average Habilities <span id="avg"></span></p>
+</body>
+<script>
+    function formatObject(){
+        var person = {
+            name:'Jose',
+            surname:'Romero Fuentes',
+            age:'23',
+            skills:[
+                {name:'program', level: 3},
+                {name:'design', level: 5},
+                {name:'testing', level: 1}
+            ],
+            years: 5
+        }
+        
+        var nameV = person.name
+        var surnameV = person.surname
+        var ageV = person.age
+        var sk = person.skills
+        var avg = ( (person.skills.length + person.years + 1) / person.skills.length)
+        
+        if( ageV < 20 ){
+            document.getElementById("age").style.color = "red"
+        }else if( ageV > 60 ){
+            document.getElementById("age").style.color = "orange"
+        }
+
+        document.querySelector('#name').innerHTML = nameV
+        document.querySelector('#surname').innerHTML = surnameV
+        document.querySelector('#age').innerHTML = ageV
+        document.querySelector('#skills').innerHTML = sk
+        document.querySelector('#avg').innerHTML = avg
+    }
+
+    formatObject()
+</script>
+</html>
