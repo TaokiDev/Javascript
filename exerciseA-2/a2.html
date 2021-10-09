@@ -9,19 +9,23 @@
 <body>
     <h1>Checking the array</h1>
     <p>If the array contains number 5, it pops up a message that indicates he found it</p>
-    <br>
     <p>If the length of the array is odd, shows the number in the middle</p>
-    <br>
     <p>Otherwise, it shows the 2 numbers in the middle</p>
-    <button type="button" onclick="findNumberFive()">Find</button> 
-    <p id="result1"></p>
+    <br>
+    <p>[5,4,3,2,8,4] <span id="result1"> </span><span id="result2"></span></p>
+    <br>
+    <p>[1,4,3,2,8] <span id="result3"> </span> <span id="result4"></span></p>
+    <br>
+    <button type="button" onclick="arrayOP1()">Check Array 1</button>
+    <button type="button" onclick="arrayOP2()">Check Array 2</button> 
     <p id="result2"></p>
 </body>
     <script>
-        function findNumberFive(){
+
+        function arrayOP1(){
             var arr1 = [5,4,3,2,8,4], answer1, answer2
             
-           for(var i=0; i<arr1.length; i++){
+            for(var i=0; i<arr1.length; i++){
                 if( arr1.includes(5) == true ){
                     answer1 = 'Five found!'
                 }else{
@@ -37,6 +41,27 @@
             
             document.querySelector('#result1').innerHTML = answer1
             document.querySelector('#result2').innerHTML = answer2
+        }
+
+        function arrayOP2(){
+            var arr2 = [1,4,3,2,8], answer3, answer4
+            
+            for(var i=0; i<arr2.length; i++){
+                if( arr2.includes(5) == true ){
+                    answer3 = 'Five found!'
+                }else{
+                    answer3 = 'Five not found'
+                }
+           }
+
+           if( arr2.length % 2 == 0){
+                answer4 = arr2.slice(2,4)
+           }else{
+               answer4 = arr2[2]
+           }
+            
+            document.querySelector('#result3').innerHTML = answer3
+            document.querySelector('#result4').innerHTML = answer4
         }
     </script>
 </html>

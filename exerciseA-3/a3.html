@@ -7,38 +7,44 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Regular Expressions Checker</h1>
+<h1>Check if you typed a Postal Code or Text</h1>
+<p>In the case of text, the script will show it 3 times and determinate if it contains 'Sa' at the beginning and 'do' at the end</p>
     <input id="text"> 
     <button type="button" onclick="validatePC()">Check</button> 
     <p id="results"></p>
     <p id="repeats"></p>
+    <p id="contains"></p>
     </body>
     <script>
         function validatePC(param){
            
-            var param,answer,rep
+            var param,answer,answer2,rep
 
             param = document.querySelector('#text').value
             
             const pattern = /^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/
-            const pattern2 = /^(Sa) && $(do)/ 
+            const pattern2 = /^[Sa]+[do]$/ 
             const result = pattern.test(param)
             const result2 = pattern2.test(param)
 
             if( result == true ){
                 answer = 'Postal Code'
+                rep = ' '
             }else{
                 answer = 'Text'
                 rep = param.repeat(3)
                 
                 if( result2 == true ){
-                    answer = 'Text'+'Contains (Sa) at the start and (do) at the end'
+                    answer2 = 'Text'+'Contains (Sa) at the start and (do) at the end'
                     rep = param.repeat(3)
+                }else{
+                    answer2 = ''
                 }
             }
             
             document.querySelector('#results').innerHTML = answer
-            document.querySelector('#repeats').innerHTML = repeats
+            document.querySelector('#repeats').innerHTML = rep
+            document.querySelector('#contains').innerHTML = answer2
         }
 
     </script>
