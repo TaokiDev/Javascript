@@ -15,19 +15,20 @@
 </body>
     <script>
         function compare(){
-            var n1, n2, answer
+            var answer
+
+            var n1 = document.querySelector('#num1').value
+            var n2 = document.querySelector('#num2').value
 
             parseN1 = parseInt(n1)
             parseN2 = parseInt(n2)
 
             if( parseN1 > parseN2 ){
-                answer = 'The number ${parseN1} is greater than number ${parseN2}'
+                answer = 'The number '+parseN1+' is greater than number '+parseN2
             }else{
-                answer = 'The number ${parseN1} is less than number ${parseN2}'
+                answer = 'The number '+parseN1+' is less than number '+parseN2
             }
             
-            n1 = document.querySelector('#num1').value
-            n2 = document.querySelector('#num2').value
             document.querySelector('#result').innerHTML = answer
         }
     </script>
