@@ -100,11 +100,12 @@ var arr = [
     [4,5,6]
 ]
 
+
 /*Ejercicio 10*/
 
 const names = new Set(["Felix","Antonio","Rosa"])
-console.log( names.has("Felix") )
+/*console.log( names.has("Felix") )
 names.delete("Antonio")
 console.log( names.values() )
 names.add("Ana")
-console.log( names.values() )
+console.log( names.values() )*/

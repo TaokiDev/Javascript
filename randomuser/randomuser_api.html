@@ -14,12 +14,12 @@
     <div>Address: <span id="address"></span></div>
     <script>
         fetch('https://randomuser.me/api')
-  .then(response => response.json() )
-  .then(json => {
-        document.querySelector('#name').innerHTML=json.results[0].name.first
-        document.querySelector('#surname').innerHTML=json.results[0].name.last
-        document.querySelector('#email').innerHTML=json.results[0].email
-        document.querySelector('#address').innerHTML=json.results[0].location.street.name
+        .then(response => response.json() )
+        .then(json => {
+            document.querySelector('#name').innerHTML=json.results[0].name.first
+            document.querySelector('#surname').innerHTML=json.results[0].name.last
+            document.querySelector('#email').innerHTML=json.results[0].email
+            document.querySelector('#address').innerHTML=json.results[0].location.street.name
    })
 
     </script>

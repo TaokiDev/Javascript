@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calificaciones del Alumno</h1>
+    <div>Nota Media EV1: <span id="ev1"></span> </div>
+    <div>Nota Media EV2: <span id="ev2"></span> </div>
+    <div>Nota Media EV3: <span id="ev3"></span> </div>
+    <br>
+    <div>Última nota EV1: <span id="ul1"></span> <span id="respuesta2"></span> </div>
+    <div>Última nota EV2: <span id="ul2"></span> <span id="respuesta3"></span> </div>
+    <div>Última nota EV3: <span id="ul3"></span> <span id="respuesta4"></span> </div>
+    <br>
+    <div>Nota Media Total: <span id="total"></span>   <span id="respuesta"></span> </div>
+
+
+</body>
+    <script>
+        let calificacionesDeMatricula = {
+            nombre: 'Sistemas informáticos',
+            evaluaciones: [
+                {
+                    nombre: '1ª evaluación',
+                    notas: [
+                        4,
+                        7
+                    ]
+                },
+                {
+                    nombre: '2ª evaluación',
+                    notas: [
+                        3,
+                        4,
+                        8,
+                        9
+                    ]
+                },
+                {
+                    nombre: '3ª evaluación',
+                    notas: [
+                        2,
+                        2,
+                        8
+                    ]
+                },
+            ]
+        }
+
+        function evaluacionTotal(){
+        var respuesta
+
+        var notaMediaEV1 = calificacionesDeMatricula.evaluaciones[0].notas.reduce((a, b) => a + b) / 2
+        var notaMediaEV2 = calificacionesDeMatricula.evaluaciones[1].notas.reduce((a, b) => a + b) / 4
+        var notaMediaEV3 = calificacionesDeMatricula.evaluaciones[2].notas.reduce((a, b) => a + b) / 3
+        
+        var notaMediaTotal = (notaMediaEV1 + notaMediaEV2 + notaMediaEV3) / 3
+        notaMediaTotal = notaMediaTotal.toFixed(2)
+
+        if( notaMediaTotal < 5 ){
+            respuesta = 'Suspenso'
+        }else if( notaMediaTotal = 5 ){
+            respuesta = 'Suficiente'
+        }else if( notaMediaTotal = 6 ){
+            respuesta = 'Bien'
+        }else if( notaMediaTotal >= 7 && notaMediaTotal < 9 ){
+            respuesta = 'Notable'
+        }else if( notaMediaTotal >= 9 && notaMediaTotal < 11){
+            respuesta = 'Sobresaliente'
+        }else{
+            respuesta = 'Fuera de rango'
+        }
+
+        if( respuesta == 'Suspenso'){
+            document.getElementById('respuesta').style.color = 'red'
+        }else{
+            document.getElementById('respuesta').style.color = 'blue'
+        }
+    
+        document.querySelector('#ev1').innerHTML = notaMediaEV1
+        document.querySelector('#ev2').innerHTML = notaMediaEV2
+        document.querySelector('#ev3').innerHTML = notaMediaEV3
+        document.querySelector('#total').innerHTML = notaMediaTotal
+        document.querySelector('#respuesta').innerHTML = respuesta     
+    }  
+    
+    function evaluacionIndividual(){
+      
+        
+        var ultimaNotaEV1 = calificacionesDeMatricula.evaluaciones[0].notas.pop()
+        var ultimaNotaEV2 = calificacionesDeMatricula.evaluaciones[1].notas.pop()
+        var ultimaNotaEV3 = calificacionesDeMatricula.evaluaciones[2].notas.pop()
+    
+        var respuesta2,respuesta3,respuesta4
+        
+        document.querySelector('#ul1').innerHTML = ultimaNotaEV1
+        document.querySelector('#ul2').innerHTML = ultimaNotaEV2
+        document.querySelector('#ul3').innerHTML = ultimaNotaEV3
+
+        
+        if( ultimaNotaEV1 < 5 ){
+            respuesta2 = 'Suspenso'
+            
+        }else if( ultimaNotaEV1 == 5 ){
+            respuesta2 = 'Suficiente'
+        }else if( ultimaNotaEV1 == 6 ){
+            respuesta2 = 'Bien'
+
+        }else if( ultimaNotaEV1 >= 7 && ultimaNotaEV1 < 9 ){
+            respuesta2 = 'Notable' 
+        }else if( ultimaNotaEV1 >= 9 && ultimaNotaEV1< 11){
+            respuesta2 = 'Sobresaliente'
+        }else{
+            respuesta2 = 'Fuera de rango'
+        }
+
+        if( ultimaNotaEV2 < 5 ){
+            respuesta3 = 'Suspenso'
+            
+        }else if( ultimaNotaEV2 == 5 ){
+            respuesta3 = 'Suficiente'
+        }else if( ultimaNotaEV2 == 6 ){
+            respuesta3 = 'Bien'
+
+        }else if( ultimaNotaEV2 >= 7 && ultimaNotaEV2 < 9){
+            respuesta3 = 'Notable' 
+        }else if( ultimaNotaEV2 >= 9 && ultimaNotaEV2 < 11){
+            respuesta3 = 'Sobresaliente'
+        }else{
+            respuesta3 = 'Fuera de rango'
+        }
+
+        if( ultimaNotaEV3 < 5 ){
+            respuesta4 = 'Suspenso'
+            
+        }else if( ultimaNotaEV3 == 5 ){
+            respuesta4 = 'Suficiente'
+        }else if( ultimaNotaEV3 == 6 ){
+            respuesta4 = 'Bien'
+
+        }else if( ultimaNotaEV3 >= 7 && ultimaNotaEV3 < 9){
+            respuesta4 = 'Notable' 
+        }else if( ultimaNotaEV3 >= 9 && ultimaNotaEV3 < 11){
+            respuesta4 = 'Sobresaliente'
+        }else{
+            respuesta4 = 'Fuera de rango'
+        }
+
+
+        if( respuesta2 == 'Suspenso'){
+            document.getElementById('respuesta2').style.color = 'red'
+        }else{
+            document.getElementById('respuesta2').style.color = 'blue'
+        }
+
+        if( respuesta3 == 'Suspenso'){
+            document.getElementById('respuesta3').style.color = 'red'
+        }else{
+            document.getElementById('respuesta3').style.color = 'blue'
+        }
+
+        if( respuesta4 == 'Suspenso'){
+            document.getElementById('respuesta4').style.color = 'red'
+        }else{
+            document.getElementById('respuesta4').style.color = 'blue'
+        }
+
+        document.querySelector('#respuesta2').innerHTML = respuesta2
+        document.querySelector('#respuesta3').innerHTML = respuesta3
+        document.querySelector('#respuesta4').innerHTML = respuesta4
+    }
+
+evaluacionTotal()
+evaluacionIndividual()
+    </script>
+</html>
