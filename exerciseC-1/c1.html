@@ -5,50 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .black{
+            background-color: black;
+        }
+        .cian{
+            background-color: cyan;
+        }
+    </style>
 </head>
 <body id="body">
-    <h2 id="title">What season are we?</h2>
-    <p id="season"><span id="emoji"></span></p>
-</body>
+    <h2>What season are we?</h2>
+    <div id="emoji"></div>
     <script>
-        function getSeason(){
-            const ss = new Date()
-            var ans
-            var day = ss.getDate()  
-            var month = ss.getMonth()
-            
-            if ( day >= 20 && month >= 2 || day < 21 && month <= 5){
-                ans='spring'
-                document.getElementById("emoji").style.content = "&#127811;"
-            }else if ( day >= 21 && month >= 5 || day < 23 && month <= 8){
-                ans='summer'
-                document.getElementById("emoji").style.content = "&8#972;&#65039;"
-            }else if( day >= 23 && month >= 8 || day < 21 && month <= 11){
-                ans='autumn'
-                document.getElementById("emoji").style.content = "&#127774;"
-            }else{
-                ans='winter'
-                document.getElementById("emoji").style.content = "&#10052;&#65039;"
-            }
-            
-            var hour = ss.getHours()
-            var bd = document.getElementById("body") 
-            var seasson = document.getElementById("season")
-            var ttl = document.getElementById("title")
+        var now = new Date()
+        var season = Math.floor( (now.getMonth()+1)/4 )
+        console.log(season)
+        var emojis = ['🌸','⛱️','🍂','⛄']
+        var emoji = emojis[season]
+        document.querySelector('#emoji').innerHTML = emoji
 
-            if( hour >= 20 || hour < 8 ){
-                bd.style.backgroundColor = "#000000"
-                seasson.style.color = "#FFFFFF"
-                ttl.style.color = "#FFFFFF"
-            }else{
-                bd.style.backgroundColor = "#10052"
-            }
-
-            document.querySelector('#season').innerHTML = ans
-            
-
+        var day = now.getHours() > 7 && now.getHours < 20
+        if (day){
+            document.body.classname="cian"
+        }else{
+            document.body.classname="black"
         }
 
-        getSeason()
     </script>
+</body>
 </html>

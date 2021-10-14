@@ -5,36 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 97vh;
+        }
+
+    </style>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 </head>
 <body>
     <h2 style="text-align: center; font-size: 3em;">Today Is</h2>
-    <p style="text-align: center; font-size: 3em;"> <span id="day"></span> <span id="month"></span><span id="year"></span> </p>
+    <div class="center" id="date"> </div>
     <img id="tree" style="margin-left:130px;">
 </body>
     <script>
-        function getDate01(){
+        const img = 'https://dibujosfaciles-dehacer.com/wp-content/uploads/2019/08/arbol-de-navidad-dibujo.jpg'
+        let now = new Date()
+    
+        const format = new Intl.DateTimeFormat("es").format(now);
+        const elements = format.split('-')
 
-            const now = new Date()
-            const day = now.getDate()
-            const month = now.getMonth()
-            const year = now.getFullYear()
-            
-            if( day == 25 && month == 11 ){
-                document.getElementById("day").style.color = "red"
-                document.getElementById("month").style.color = "green"
-                document.getElementById("year").style.color = "red"
-                document.getElementById("tree").src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Xmas_tree.svg/1024px-Xmas_tree.svg.png"
-            }
-            
-            var ansDay = day+'/'
-            var ansMonth = month+'/'
-            var ansYear = year
+        document.getElementById('date').innerHTML = format
 
-            document.querySelector('#day').innerHTML = ansDay
-            document.querySelector('#month').innerHTML = ansMonth
-            document.querySelector('#year').innerHTML = ansYear
-        }
-
-        getDate01()
+        dayjs.extend(window.dayjs_plugin_isBetween)
+        let christmas = dayjs(now).isBetween(new Date().getFullYear()+'-12-20', dayjs((new Date().getFullYear()+1)+'-1-6')) 
+        if(christmas) document.getElementById('tree').src = img
     </script>
 </html>

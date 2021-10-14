@@ -7,45 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-<h2>Javascript Object(formatted)</h2>
-<p>Name: <span id="name"></span> <span id="surname"></span></p>
-<p>Age: <span id="age"></span></p>
-<p>Habilities: <span id="skills"></span> <span id="skills2"></span> <span id="skills3"></span></p>
-<p>Average Habilities <span id="avg"></span></p>
-</body>
-<script>
-    function formatObject(){
-        var person = {
-            name:'Jose',
-            surname:'Romero Fuentes',
-            age:'23',
-            skills:[
-                {name:'program', level: 3},
-                {name:'design', level: 5},
-                {name:'testing', level: 1}
+    <div id="name"></div>
+    <div id="age"></div>
+    <div id="abilities"></div>
+    <div id="average"></div>
+    
+    <script>
+        var info = {
+            nombre: 'Jose',
+            apellidos: 'Romero Fuentes',
+            edad: '23',
+            skills: [
+                { nombre: 'programar', nivel: 3 },
+                { nombre: 'diseñar', nivel: 5 },
+                { nombre: 'testear', nivel: 1 }
             ],
-            years: 5
-        }
-        
-        var nameV = person.name
-        var surnameV = person.surname
-        var ageV = person.age
-        var sk = person.skills
-        var avg = ( (person.skills.length + person.years + 1) / person.skills.length)
-        
-        if( ageV < 20 ){
-            document.getElementById("age").style.color = "red"
-        }else if( ageV > 60 ){
-            document.getElementById("age").style.color = "orange"
+            antiguedad: 5
         }
 
-        document.querySelector('#name').innerHTML = nameV
-        document.querySelector('#surname').innerHTML = surnameV
-        document.querySelector('#age').innerHTML = ageV
-        document.querySelector('#skills').innerHTML = sk
-        document.querySelector('#avg').innerHTML = avg
-    }
+        const name = info.nombre + ' ' + info.apellidos
+        document.querySelector('#name').innerHTML = name
 
-    formatObject()
-</script>
+        if(info.edad < 20) document.getElementById('age').style.color = "red"
+        if(info.edad < 60) document.getElementById('age').style.color = "orange"
+        document.getElementById('age').innerHTML = info.edad
+
+        const abilities = info.skills.map(e=>e.nombre).join(', ')
+        document.getElementById('abilities').innerHTML = abilities
+
+        const avg = info.skills.reduce(e=>e.nivel) / info.skills.length
+        document.getElementById('average').innerHTML = avg
+        
+    </script>
+</body>
 </html>

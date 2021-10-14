@@ -7,23 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-    Obligatory numbers <input type="checkbox" id="uppercase">
-    Obligatory uppercase <input type="checkbox" id="num">
-    Obligatory rare characters <input type="checkbox" id="rare">
-    Minimum characters<input type="checkbox" id="amount">
-</body>
-
-<script>
-    document.getElementById('password').addEventListener('change', operar)
-    function operar(){
-        let obligaMayus = document.getElementById('mayus').value
-        let obligaNum = document.getElementById('num').value
-        let obligaRaros = document.getElementById('raros').value
-        let cantidad = parseInt(document.getElementById('cantidad').value)
-        let password = document.getElementById('password').value
-        let fuerte = false
-        
-        if (obligaMayus) {
+    <div>
+        Uso obligatorio de mayúsculas <input type="checkbox" id="mayus"> <br />
+        Uso obligatorio de mumeros <input type="checkbox" id="num"> <br />
+        Uso obligatorio de caracteres raros <input type="checkbox" id="raros"> <br />
+        Cantidad de caracteres <input id="cantidad"> <br />
+        <input id="password">
+        <div id="fortaleza"></div>
+    </div>
+    <script>
+        document.getElementById('password').addEventListener('keypress', operar)
+        function operar() {
+            let obligaMayus = document.getElementById('mayus').checked
+            let obligaNum = document.getElementById('num').checked
+            let obligaRaros = document.getElementById('raros').checked
+            let cantidad = parseInt(document.getElementById('cantidad').value)
+            let password = document.getElementById('password').value
+            let fuerte = true
+            if (obligaMayus) {
                 let regex = /[A-Z]/
                 if (!regex.test(password) == true) fuerte = false
             }
@@ -38,7 +39,7 @@
                 if (!regex.test(password) == true) fuerte = false
             }
 
-            if (password < cantidad) fuerte = false
+            if (password.length < cantidad) fuerte = false
 
             document.getElementById('fortaleza').innerHTML = fuerte
         }
