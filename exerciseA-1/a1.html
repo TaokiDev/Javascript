@@ -10,11 +10,14 @@
     <h1>The script check what is the greatest number</h1>
     <input id="num1">
     <input id="num2">
-    <button type="button" onclick="compare()">Compare</button> 
+    <button type="button">Compare</button> 
     <p id="result"></p>
 </body>
     <script>
+        document.querySelector('#result').addEventListener('click', button)
+        
         function compare(){
+            
             var answer
 
             var n1 = document.querySelector('#num1').value
@@ -23,12 +26,14 @@
             parseN1 = parseInt(n1)
             parseN2 = parseInt(n2)
 
-            if( parseN1 > parseN2 ){
-                answer = 'The number '+parseN1+' is greater than number '+parseN2
+/*            if( parseN1 > parseN2 ){
+                answer = `The number ${parseN1} is greater than number ${parseN2}`
             }else{
-                answer = 'The number '+parseN1+' is less than number '+parseN2
+                answer = `The number ${parseN1} is less than number ${parseN2}`
             }
-            
+*/            
+            var answer = `The number ${parseN1} is ${parseN1>parseN2? 'greater':'less'} than ${parseN2}` 
+           
             document.querySelector('#result').innerHTML = answer
         }
     </script>

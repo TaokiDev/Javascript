@@ -100,7 +100,7 @@ var arr = [
     [4,5,6]
 ]
 
-
+console.log(arr[5]('Pepe'))
 /*Ejercicio 10*/
 
 const names = new Set(["Felix","Antonio","Rosa"])

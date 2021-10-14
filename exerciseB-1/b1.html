@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Obligatory numbers <input type="checkbox" id="uppercase">
+    Obligatory uppercase <input type="checkbox" id="num">
+    Obligatory rare characters <input type="checkbox" id="rare">
+    Minimum characters<input type="checkbox" id="amount">
+</body>
+
+<script>
+    document.getElementById('password').addEventListener('change', operar)
+    function operar(){
+        let obligaMayus = document.getElementById('mayus').value
+        let obligaNum = document.getElementById('num').value
+        let obligaRaros = document.getElementById('raros').value
+        let cantidad = parseInt(document.getElementById('cantidad').value)
+        let password = document.getElementById('password').value
+        let fuerte = false
+        
+        if (obligaMayus) {
+                let regex = /[A-Z]/
+                if (!regex.test(password) == true) fuerte = false
+            }
+
+            if (obligaNum) {
+                let regex = /[0-9]/
+                if (!regex.test(password) == true) fuerte = false
+            }
+
+            if (obligaRaros) {
+                let regex = /[&$_#;]/
+                if (!regex.test(password) == true) fuerte = false
+            }
+
+            if (password < cantidad) fuerte = false
+
+            document.getElementById('fortaleza').innerHTML = fuerte
+        }
+</script>
+</html>
